@@ -48,4 +48,39 @@ int main() {
     return 0;
 }
 
-This program reads a line of input from the user, and then uses the system function to execute the line as a command. It’s a very simple shell and doesn’t include many of the features you’d find in a full shell like bash, but it’s a starting point.
+This program reads a line of input from the user, and then uses the system function to execute the line as a command. 
+It’s a very simple shell and doesn’t include many of the features you’d find in a full shell like bash, but it’s a starting point.
+
+Imagine you’re playing with your toy blocks. Each block is a piece of code. Now, we’re going to build a castle, which is our “Simple Shell” project.
+
+The Entrance (main function): This is where we start. It’s like the door to our castle. We need to make sure it’s strong and secure. In code, this is our main function. It’s the starting point of our program.
+int main(void)
+{
+    /* code */
+    return (0);
+}
+
+The Walls (shell loop): These are the main parts of our castle. They keep everything inside safe. In our shell, this is the loop that keeps running, waiting for commands.
+while (1)
+{
+    /* code */
+}
+
+The Rooms (functions): These are the different parts of our castle, like the kitchen, the living room, etc. In our shell, these are the different functions that do specific tasks, like reading input, executing commands, etc.
+void read_command(void)
+{
+    /* code */
+}
+
+void execute_command(void)
+{
+    /* code */
+}
+
+The Decorations (error handling): These make our castle look nice and handle problems. In our shell, this is the error handling code that makes sure everything runs smoothly.
+if (error)
+{
+    /* handle error */
+}
+
+And that’s it! We’ve built our castle (or “Simple Shell”). Remember, each block (or piece of code) is important and has a specific job. And just like building a castle
