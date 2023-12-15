@@ -10,9 +10,14 @@ void cd(char *path)
 if (path == NULL)
 {
 path = getenv("HOME");
+if (path == NULL)
+{
+printf("Error: Home environment variable not set\n");
+return;
+}
 }
 if (chdir(path) != 0)
 {
-perror("cd failed");
+perror("Directory does not exit");
 }
 }

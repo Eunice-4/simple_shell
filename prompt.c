@@ -7,7 +7,7 @@
  **/
 void display_prompt(void)
 {
-	char prompt[] = "(shell)$ ";
+	char prompt[] = "$ ";
 
 	write(STDOUT_FILENO, prompt, 2);
 }
