@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/stat.h>
 
 /**
@@ -23,12 +24,13 @@ char *command;
 char *argument;
 char *name;
 char *value;
+char *args[3];
+int status;
 
 while (1)
 {
 display_prompt();
 work_done = getline(&user_input, &size_of_input, stdin);
-        
 if (work_done == -1)
 {
 free(user_input);
@@ -65,11 +67,35 @@ exit(0);
 }
 else
 {
-printf("Unknown command: %s\n", command);
+pid_t pid = fork();
+if (pid == 0)
+{
+args[0] = command;
+args[1] = argument;
+args[2] = NULL;
+execvp(args[0], args);
+perror("exec");
+exit(EXIT_FAILURE);
+}
+else if (pid > 0)
+{
+waitpid(pid, &status, 0);
+if (WIFEXITED(status))
+{
+exit_status = WEXITSTATUS(status);
+}
+}
+else
+{
+perror("fork");
+exit(EXIT_FAILURE);
+{
+wait(NULL);
+}
 }
 free(user_input);
 user_input = NULL;
 }
 return (0);
 }
-
+}
