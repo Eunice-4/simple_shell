@@ -12,7 +12,12 @@ if (name == NULL || value == NULL)
 printf("setenv: too few arguments\n");
 return (1);
 }
-if (setenv(name, value, 1) != 0)
+if (strchr(name, '=') != NULL)
+{
+printf("setenv: Invalid environment variable name\n");
+return (1);
+}
+if (setenv(name, value 1) != 0)
 {
 perror("setenv failed");
 return (1);
