@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <string.h>
 
 int set_env_var(char *name, char *value)
 {
@@ -17,7 +18,7 @@ if (strchr(name, '=') != NULL)
 printf("setenv: Invalid environment variable name\n");
 return (1);
 }
-if (setenv(name, value 1) != 0)
+if (setenv(name, value, 1) != 0)
 {
 perror("setenv failed");
 return (1);
