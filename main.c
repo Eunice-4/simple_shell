@@ -22,6 +22,7 @@ int main(void)
 	{
 		display_prompt();
 		work_done = getline(&user_input, &size_of_input, stdin);
+        
 		if (work_done == -1)
 		{
 			free(user_input);
